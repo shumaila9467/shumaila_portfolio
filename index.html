@@ -1,86 +1,350 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title> Shumaila Abbasi - Profile </title>
+<title>Shumaila Abbasi | Portfolio</title>
 <meta charset="UTF-8">
-<!-- AI: I'm writing an html code for a small website, how do I get more fonts-->
-<link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
 
 <style>
+:root{
+  --pink:#e34ba9;
+  --purple:#7b3fe4;
+  --deep:#3a1248;
+  --text:#2a1f2f;
+  --muted:#6d5b73;
+  --glass:rgba(255,255,255,0.7);
+  --border:rgba(255,255,255,0.4);
+}
+
+*{ box-sizing:border-box; }
+
 body{
-font-family: 'Patrick Hand', cursive;
-background:#fcfcf8;
-margin:40px;   
-line-height:1.7;
+  font-family:'Inter', sans-serif;
+  background:
+    radial-gradient(circle at top left, #ffe6f5 0%, #f3e9ff 40%, #e8dbff 100%);
+  margin:0;
+  padding:80px 18px;
+  color:var(--text);
 }
 
+.container{
+  max-width:1100px;
+  margin:auto;
+}
+
+/* Header */
+header{
+  text-align:center;
+  margin-bottom:80px;
+}
+
+h1{
+  font-family:'Playfair Display', serif;
+  font-size:48px;
+  margin-bottom:10px;
+  background:linear-gradient(135deg,var(--pink),var(--purple));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.subtitle{
+  font-size:17px;
+  color:var(--muted);
+}
+
+/* Sections */
 .section{
-background:white;
-padding:18px;
-margin:25px 0;
-border-radius:9px;
-box-shadow:0 0 5px rgba(0,0,0,0.15);
-border:1px dashed #555;
+  background:var(--glass);
+  backdrop-filter:blur(16px);
+  padding:38px 42px;
+  margin-bottom:44px;
+  border-radius:26px;
+  border:1px solid var(--border);
+  box-shadow:
+    0 24px 48px rgba(123,63,228,0.18),
+    inset 0 1px 0 rgba(255,255,255,0.6);
 }
 
-h1, h2{
-color:#333;
+.section h2{
+  font-family:'Playfair Display', serif;
+  font-size:30px;
+  margin-bottom:22px;
+  padding-bottom:10px;
+  border-bottom:1px solid rgba(123,63,228,0.25);
+  color:var(--deep);
 }
 
+/* Button */
 a.button{
-padding:10px 16px;
-background:#7f0000;
-color:white;
-text-decoration:none;
-border-radius:6px;
+  display:inline-block;
+  padding:14px 34px;
+  background:linear-gradient(135deg,var(--pink),var(--purple));
+  color:white;
+  text-decoration:none;
+  border-radius:999px;
+  font-weight:500;
+  box-shadow:0 14px 32px rgba(227,75,169,0.45);
+  transition:all 0.35s ease;
 }
 
-.project-box{
-padding:10px;
-margin-bottom:14px;
-border-left:4px dotted #7f0000;
-background:#faf7f1;
+a.button:hover{
+  transform:translateY(-4px);
+  box-shadow:0 22px 46px rgba(123,63,228,0.55);
 }
 
-.PP-box h3{
-margin:0 0 6px 0;
-font-size:20px;
+/* Projects */
+.project{
+  display:flex;
+  gap:26px;
+  align-items:flex-start;
+  padding:26px;
+  margin-bottom:30px;
+  border-radius:24px;
+  background:rgba(255,255,255,0.85);
+  border:1px solid rgba(255,255,255,0.5);
+  box-shadow:0 18px 36px rgba(123,63,228,0.22);
+  transition:all 0.4s ease;
+}
+
+.project:hover{
+  transform:translateY(-6px);
+  box-shadow:0 30px 60px rgba(123,63,228,0.35);
+}
+
+/* Project image */
+.project img{
+  width:170px;
+  height:200px;
+  object-fit:cover;
+  border-radius:18px;
+  box-shadow:0 14px 30px rgba(123,63,228,0.35);
+  flex-shrink:0;
+  transition:transform 0.4s ease;
+}
+
+.project:hover img{
+  transform:scale(1.07);
+}
+
+.project-content{
+  flex:1;
+}
+
+.project h3{
+  margin:0 0 10px 0;
+  font-size:20px;
+  font-weight:600;
+}
+
+.project h3 a{
+  text-decoration:none;
+  background:linear-gradient(135deg,var(--pink),var(--purple));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.project p{
+  margin:0;
+  font-size:15.5px;
+  color:#4a3a52;
+}
+
+/* Project links */
+.project-links{
+  margin-top:10px;
+  font-size:14px;
+}
+
+.project-links a{
+  margin-right:18px;
+  color:var(--purple);
+  font-weight:500;
+  text-decoration:none;
+}
+
+.project-links a:hover{
+  text-decoration:underline;
+}
+
+/* Mobile */
+@media (max-width:800px){
+  header{ margin-bottom:60px; }
+  h1{ font-size:40px; }
+
+  .section{
+    padding:28px 24px;
+  }
+
+  .project{
+    flex-direction:column;
+  }
+
+  .project img{
+    width:100%;
+    height:240px;
+  }
+}
+
+/* Footer */
+footer{
+  text-align:center;
+  font-size:14px;
+  color:var(--muted);
+  margin-top:70px;
 }
 </style>
 </head>
+
 <body>
-<h1> Shumaila Abbasi </h1>
-<p> MS-CAPP student | Data science & public policy </p>
+<div class="container">
+
+<header>
+  <h1>Shumaila Abbasi</h1>
+  <div class="subtitle">
+    MS-CAPP · Data Science & Public Policy · University of Chicago
+  </div>
+</header>
 
 <div class="section">
-<h2> About Me </h2>
-<p> I am a data-driven policy professional at the University of Chicago. I work across computational methods, applied research, and analytical projects in public policy and economics. </p>
+  <h2>About Me</h2>
+  <p>
+    I am a data-driven policy professional at the University of Chicago working at the intersection of
+    computational methods, applied economic research, and public policy. My work focuses on transforming
+    complex data into rigorous, decision-relevant insights.
+  </p>
 </div>
 
 <div class="section">
-<h2> CV </h2>
-<p> Download my CV below: </p>
-
-<a class="button" download href="https://drive.google.com/uc?export=download&id=1vEC_5E3LxwknOBXwB23uXcXtyH2t4FKJ">Download CV</a>
+  <h2>Curriculum Vitae</h2>
+  <p>You can download my CV below:</p>
+  <a class="button" download href="https://drive.google.com/uc?export=download&id=1vEC_5E3LxwknOBXwB23uXcXtyH2t4FKJ">
+    Download CV
+  </a>
 </div>
 
 <div class="section">
-<h2> Projects & Publications </h2>
+  <h2>Projects & Publications</h2>
 
-<div class="PP-box">
-<h3><a target="_blank" href="https://ecchc.economics.uchicago.edu/2025/09/29/policy-brief-the-share-of-health-care-spending-growth-attributable-to-rx/">Policy Brief: Health Care Spending Growth Attributable to Rx</a></h3>
-<p> Policy brief analyzing the contribution of prescription drugs to long-term U.S. healthcare spending trends. </p>
+  <!-- Statewise Economy -->
+  <div class="project">
+    <a href="https://shumaila9467.github.io/statewise-economy/" target="_blank">
+      <img src="statewise.jpg" alt="Statewise economy dashboard">
+    </a>
+    <div class="project-content">
+      <h3><a href="https://shumaila9467.github.io/statewise-economy/" target="_blank">
+        Statewise U.S. Economy: Interactive Data Visualization Dashboard
+      </a></h3>
+      <p>
+        Interactive dashboard built using Altair, HTML, CSS, and JavaScript to analyze state- and
+        industry-level GDP trends in the U.S. from 2019–2024.
+      </p>
+      <div class="project-links">
+        <a href="https://shumaila9467.github.io/statewise-economy/" target="_blank">Live Project</a>
+        <a href="https://github.com/Shumaila9467/statewise-economy" target="_blank">GitHub</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rx Policy -->
+  <div class="project">
+    <a href="https://bpb-us-w2.wpmucdn.com/voices.uchicago.edu/dist/d/3128/files/2025/09/The-Share-of-Health-Care-Spending-Growth-Attributable-to-Rx.pdf" target="_blank">
+      <img src="ecch1.jpg" alt="Rx policy brief">
+    </a>
+    <div class="project-content">
+      <h3><a href="https://bpb-us-w2.wpmucdn.com/voices.uchicago.edu/dist/d/3128/files/2025/09/The-Share-of-Health-Care-Spending-Growth-Attributable-to-Rx.pdf" target="_blank">
+        Policy Brief: Health Care Spending Growth Attributable to Rx
+      </a></h3>
+      <p>
+        Policy brief analyzing the contribution of prescription drugs to long-term U.S. healthcare spending growth.
+      </p>
+    </div>
+  </div>
+
+  <!-- Turkmenistan -->
+  <div class="project">
+    <a href="https://www.pbc.org.pk/wp-content/uploads/Report-Turkmenistan.pdf" target="_blank">
+      <img src="turkmenistan.jpg" alt="Turkmenistan report">
+    </a>
+    <div class="project-content">
+      <h3><a href="https://www.pbc.org.pk/wp-content/uploads/Report-Turkmenistan.pdf" target="_blank">
+        Turkmenistan Country Profile (Pakistan Business Council)
+      </a></h3>
+      <p>
+        Country profile produced as part of the Central Asia research series for the Pakistan Business Council.
+      </p>
+    </div>
+  </div>
+
+  <!-- Export Competitiveness -->
+  <div class="project">
+    <a href="https://www.pbc.org.pk/wp-content/uploads/a-policy-framework-for-improving-the-export-competitiveness-of-pakistans-knitted-apparel.pdf" target="_blank">
+      <img src="export.jpg" alt="Export competitiveness report">
+    </a>
+    <div class="project-content">
+      <h3><a href="https://www.pbc.org.pk/wp-content/uploads/a-policy-framework-for-improving-the-export-competitiveness-of-pakistans-knitted-apparel.pdf" target="_blank">
+        Export Competitiveness: Pakistan’s Knitted Apparel Sector
+      </a></h3>
+      <p>
+        Trade policy framework identifying structural constraints and reform pathways to strengthen Pakistan’s knitwear exports.
+      </p>
+    </div>
+  </div>
+
+  <!-- GSP -->
+  <div class="project">
+    <a href="https://www.pbc.org.pk/wp-content/uploads/Pakistans-GSP-Status...a-missed-opportunity.pdf" target="_blank">
+      <img src="gsp.jpg" alt="Pakistan GSP report">
+    </a>
+    <div class="project-content">
+      <h3><a href="https://www.pbc.org.pk/wp-content/uploads/Pakistans-GSP-Status...a-missed-opportunity.pdf" target="_blank">
+        Pakistan’s GSP Status: A Missed Opportunity
+      </a></h3>
+      <p>
+        Policy report evaluating Pakistan’s GSP status and its implications for trade competitiveness and export performance.
+      </p>
+    </div>
+  </div>
+
+  <!-- Sindh -->
+  <div class="project">
+    <a href="https://ir.iba.edu.pk/cgi/viewcontent.cgi?article=1005&context=faculty-research-books" target="_blank">
+      <img src="sindh.jpg" alt="Economy of Modern Sindh">
+    </a>
+    <div class="project-content">
+      <h3><a href="https://ir.iba.edu.pk/cgi/viewcontent.cgi?article=1005&context=faculty-research-books" target="_blank">
+        Economy of Modern Sindh (Research Project)
+      </a></h3>
+      <p>
+        Research contribution to <em>The Economy of Modern Sindh</em>, led by Dr. Ishrat Husain, supporting
+        sectoral economic analysis and policy-oriented research.
+      </p>
+    </div>
+  </div>
+
+  <!-- ConLawNow -->
+  <div class="project">
+    <a href="https://ideaexchange.uakron.edu/cgi/viewcontent.cgi?article=1203&context=conlawnow" target="_blank">
+      <img src="sharon.jpg" alt="ConLawNow article">
+    </a>
+    <div class="project-content">
+      <h3><a href="https://ideaexchange.uakron.edu/cgi/viewcontent.cgi?article=1203&context=conlawnow" target="_blank">
+        Fundamental Fairness Guides (<em>ConLawNow</em>)
+      </a></h3>
+      <p>
+        Legal scholarship co-authored with Professor Sharon Fairley analyzing defendant-friendly trends
+        in U.S. Supreme Court criminal justice jurisprudence.
+      </p>
+    </div>
+  </div>
+
 </div>
 
-<div class="PP-box">
-<h3><a target="_blank" href="https://www.pbc.org.pk/wp-content/uploads/Report-Turkmenistan.pdf">Turkmenistan Country Profile (PBC Report)</a></h3>
-<p> A country profile produced for the Pakistan Business Council as part of the Central Asia research series. </p>
-</div>
-
-<div class="PP-box">
-<h3><a target="_blank" href="https://www.pbc.org.pk/research/a-policy-framework-for-improving-the-export-competitiveness-of-pakistans-knitted-apparel/">Export Competitiveness: Pakistan’s Knitted Apparel Sector</a></h3>
-<p> A policy framework analyzing constraints and recommending reforms to strengthen Pakistan’s knitwear exports. </p>
-</div>
+<footer>
+  © 2025 · Shumaila Abbasi
+</footer>
 
 </div>
 </body>

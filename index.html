@@ -31,7 +31,7 @@ body{
 }
 
 .container{
-  max-width:1100px;
+  max-width:1180px;
   margin:auto;
 }
 
@@ -116,9 +116,10 @@ a.button:hover{
 
 /* Project image */
 .project img{
-  width:170px;
+  width:220px;
   height:200px;
-  object-fit:cover;
+  object-fit:contain;
+  background:white;
   border-radius:18px;
   box-shadow:0 14px 30px rgba(123,63,228,0.35);
   flex-shrink:0;
@@ -228,6 +229,54 @@ footer{
 <div class="section">
   <h2>Projects & Publications</h2>
 
+  <!-- NBER Cancer -->
+  <div class="project">
+    <a href="https://www.nber.org/papers/w35052" target="_blank">
+      <img src="nber.jpg" alt="NBER working paper">
+    </a>
+    <div class="project-content">
+      <h3><a href="https://www.nber.org/papers/w35052" target="_blank">
+        The Economic Value of Eliminating Cancer (NBER Working Paper)
+      </a></h3>
+      <p>
+        Co-authored working paper estimating the economic value of eliminating U.S. cancer mortality,
+        translating longevity gains into large-scale social and economic benefits.
+      </p>
+    </div>
+  </div>
+
+  <!-- Post-Approval Innovation -->
+  <div class="project">
+    <a href="https://ecchc.economics.uchicago.edu/project/policy-brief-the-impact-of-intellectual-property-protection-on-post-approval-innovation/" target="_blank">
+      <img src="pharma.jpg" alt="Pharmaceutical innovation policy brief">
+    </a>
+    <div class="project-content">
+      <h3><a href="https://ecchc.economics.uchicago.edu/project/policy-brief-the-impact-of-intellectual-property-protection-on-post-approval-innovation/" target="_blank">
+        Policy Brief: The Impact of Intellectual Property Protection on Post-Approval Innovation
+      </a></h3>
+      <p>
+        Policy brief examining how intellectual property protection shapes post-approval pharmaceutical innovation,
+        additional drug uses, and long-run patient health outcomes.
+      </p>
+    </div>
+  </div>
+
+  <!-- Foot Pursuits -->
+  <div class="project">
+    <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6250198" target="_blank">
+      <img src="footchase.jpg" alt="Foot pursuits research paper">
+    </a>
+    <div class="project-content">
+      <h3><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6250198" target="_blank">
+        When Are Foot Pursuits Really Necessary? How Improved Policies Might Reduce Community Harm
+      </a></h3>
+      <p>
+        Research paper analyzing police foot-pursuit policy and how clearer limits and safeguards could
+        reduce community harm while supporting safer law enforcement practices.
+      </p>
+    </div>
+  </div>
+
   <!-- Statewise Economy -->
   <div class="project">
     <a href="https://shumaila9467.github.io/statewise-economy/" target="_blank">
@@ -278,7 +327,6 @@ footer{
       </p>
     </div>
   </div>
-
 
   <!-- Turkmenistan -->
   <div class="project">

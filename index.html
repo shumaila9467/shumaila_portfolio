@@ -6,17 +6,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
 <style>
 :root{
-  --pink:#e34ba9;
-  --purple:#7b3fe4;
-  --deep:#3a1248;
-  --text:#2a1f2f;
-  --muted:#6d5b73;
-  --glass:rgba(255,255,255,0.7);
-  --border:rgba(255,255,255,0.4);
+  --pink:#d94f9e;
+  --purple:#6d3fc9;
+  --deep:#301045;
+  --text:#241a2c;
+  --muted:#6b5c74;
+  --glass:rgba(255,255,255,0.72);
+  --border:rgba(255,255,255,0.5);
+  --tag-bg:rgba(109,63,201,0.1);
 }
 
 *{ box-sizing:border-box; }
@@ -24,9 +25,12 @@
 body{
   font-family:'Inter', sans-serif;
   background:
-    radial-gradient(circle at top left, #ffe6f5 0%, #f3e9ff 40%, #e8dbff 100%);
+    radial-gradient(circle at 12% 8%, #ffe1f2 0%, transparent 45%),
+    radial-gradient(circle at 88% 0%, #e6dbff 0%, transparent 50%),
+    linear-gradient(160deg, #fdf3f9 0%, #f3ecfb 45%, #ece2fb 100%);
+  background-attachment:fixed;
   margin:0;
-  padding:80px 18px;
+  padding:80px 18px 60px;
   color:var(--text);
 }
 
@@ -38,13 +42,24 @@ body{
 /* Header */
 header{
   text-align:center;
-  margin-bottom:80px;
+  margin-bottom:76px;
+}
+
+.eyebrow{
+  font-size:13px;
+  letter-spacing:0.16em;
+  text-transform:uppercase;
+  color:var(--purple);
+  font-weight:600;
+  margin-bottom:14px;
 }
 
 h1{
   font-family:'Playfair Display', serif;
-  font-size:48px;
-  margin-bottom:10px;
+  font-weight:600;
+  font-size:54px;
+  margin:0 0 12px;
+  letter-spacing:-0.01em;
   background:linear-gradient(135deg,var(--pink),var(--purple));
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
@@ -53,28 +68,71 @@ h1{
 .subtitle{
   font-size:17px;
   color:var(--muted);
+  max-width:520px;
+  margin:auto;
+  line-height:1.6;
 }
 
 /* Sections */
 .section{
   background:var(--glass);
-  backdrop-filter:blur(16px);
-  padding:38px 42px;
-  margin-bottom:44px;
-  border-radius:26px;
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  padding:40px 44px;
+  margin-bottom:40px;
+  border-radius:28px;
   border:1px solid var(--border);
   box-shadow:
-    0 24px 48px rgba(123,63,228,0.18),
-    inset 0 1px 0 rgba(255,255,255,0.6);
+    0 24px 50px rgba(109,63,201,0.14),
+    inset 0 1px 0 rgba(255,255,255,0.7);
 }
 
-.section h2{
+.section-title{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:16px;
+  padding-bottom:14px;
+  margin-bottom:26px;
+  border-bottom:1px solid rgba(109,63,201,0.18);
+}
+
+.section-title h2{
   font-family:'Playfair Display', serif;
-  font-size:30px;
-  margin-bottom:22px;
-  padding-bottom:10px;
-  border-bottom:1px solid rgba(123,63,228,0.25);
+  font-weight:600;
+  font-size:29px;
+  margin:0;
   color:var(--deep);
+}
+
+.section-count{
+  font-size:13px;
+  color:var(--muted);
+  font-weight:500;
+  white-space:nowrap;
+}
+
+.section.about p{
+  font-size:16.5px;
+  line-height:1.75;
+  color:#3c2e46;
+  margin:0;
+  max-width:760px;
+}
+
+/* CV row */
+.cv-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+.cv-row p{
+  margin:0;
+  font-size:15px;
+  color:var(--muted);
 }
 
 /* Button */
@@ -85,14 +143,15 @@ a.button{
   color:white;
   text-decoration:none;
   border-radius:999px;
-  font-weight:500;
-  box-shadow:0 14px 32px rgba(227,75,169,0.45);
-  transition:all 0.35s ease;
+  font-weight:600;
+  font-size:14.5px;
+  box-shadow:0 14px 32px rgba(217,79,158,0.4);
+  transition:transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 a.button:hover{
-  transform:translateY(-4px);
-  box-shadow:0 22px 46px rgba(123,63,228,0.55);
+  transform:translateY(-3px);
+  box-shadow:0 22px 44px rgba(109,63,201,0.5);
 }
 
 /* Projects */
@@ -100,93 +159,155 @@ a.button:hover{
   display:flex;
   gap:26px;
   align-items:flex-start;
-  padding:26px;
-  margin-bottom:30px;
-  border-radius:24px;
+  padding:24px;
+  margin-bottom:22px;
+  border-radius:22px;
   background:rgba(255,255,255,0.85);
-  border:1px solid rgba(255,255,255,0.5);
-  box-shadow:0 18px 36px rgba(123,63,228,0.22);
-  transition:all 0.4s ease;
+  border:1px solid rgba(255,255,255,0.6);
+  box-shadow:0 16px 34px rgba(109,63,201,0.16);
+  transition:transform 0.35s ease, box-shadow 0.35s ease;
 }
+
+.project:last-child{ margin-bottom:0; }
 
 .project:hover{
-  transform:translateY(-6px);
-  box-shadow:0 30px 60px rgba(123,63,228,0.35);
+  transform:translateY(-5px);
+  box-shadow:0 28px 54px rgba(109,63,201,0.28);
 }
 
-/* Project image */
 .project img{
-  width:220px;
-  height:200px;
-  object-fit:contain;
-  background:white;
-  border-radius:18px;
-  box-shadow:0 14px 30px rgba(123,63,228,0.35);
+  width:150px;
+  height:150px;
+  object-fit:cover;
+  border-radius:16px;
+  box-shadow:0 10px 24px rgba(109,63,201,0.28);
   flex-shrink:0;
   transition:transform 0.4s ease;
 }
 
-.project:hover img{
-  transform:scale(1.07);
-}
+.project:hover img{ transform:scale(1.05); }
 
-.project-content{
-  flex:1;
+.project-content{ flex:1; min-width:0; }
+
+.tag{
+  display:inline-block;
+  font-size:11.5px;
+  font-weight:600;
+  letter-spacing:0.04em;
+  text-transform:uppercase;
+  color:var(--purple);
+  background:var(--tag-bg);
+  padding:4px 11px;
+  border-radius:999px;
+  margin-bottom:10px;
 }
 
 .project h3{
-  margin:0 0 10px 0;
-  font-size:20px;
+  margin:0 0 9px;
+  font-family:'Playfair Display', serif;
+  font-size:20.5px;
   font-weight:600;
+  line-height:1.35;
 }
 
 .project h3 a{
   text-decoration:none;
-  background:linear-gradient(135deg,var(--pink),var(--purple));
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
+  color:var(--deep);
+  background-image:linear-gradient(135deg,var(--pink),var(--purple));
+  background-position:0 100%;
+  background-repeat:no-repeat;
+  background-size:0% 2px;
+  transition:background-size 0.3s ease;
+  padding-bottom:2px;
 }
+
+.project h3 a:hover{ background-size:100% 2px; }
 
 .project p{
   margin:0;
-  font-size:15.5px;
+  font-size:15px;
+  line-height:1.6;
   color:#4a3a52;
+  max-width:640px;
 }
 
 /* Project links */
 .project-links{
-  margin-top:10px;
+  margin-top:12px;
   font-size:14px;
 }
 
 .project-links a{
   margin-right:18px;
   color:var(--purple);
-  font-weight:500;
+  font-weight:600;
   text-decoration:none;
 }
 
-.project-links a:hover{
-  text-decoration:underline;
+.project-links a:hover{ text-decoration:underline; }
+
+/* Featured projects (grid) */
+.feature-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:22px;
+}
+
+.feature-card{
+  background:rgba(255,255,255,0.85);
+  border:1px solid rgba(255,255,255,0.6);
+  border-radius:22px;
+  overflow:hidden;
+  box-shadow:0 16px 34px rgba(109,63,201,0.16);
+  transition:transform 0.35s ease, box-shadow 0.35s ease;
+  display:flex;
+  flex-direction:column;
+}
+
+.feature-card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 28px 54px rgba(109,63,201,0.28);
+}
+
+.feature-card img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+}
+
+.feature-body{ padding:24px 26px 26px; flex:1; display:flex; flex-direction:column; }
+
+.feature-card h3{
+  margin:0 0 9px;
+  font-family:'Playfair Display', serif;
+  font-size:20.5px;
+  font-weight:600;
+}
+
+.feature-card h3 a{ color:var(--deep); text-decoration:none; }
+.feature-card h3 a:hover{ color:var(--pink); }
+
+.feature-card p{
+  margin:0 0 14px;
+  font-size:15px;
+  line-height:1.6;
+  color:#4a3a52;
+  flex:1;
 }
 
 /* Mobile */
 @media (max-width:800px){
-  header{ margin-bottom:60px; }
-  h1{ font-size:40px; }
+  body{ padding:56px 14px 40px; }
+  header{ margin-bottom:56px; }
+  h1{ font-size:42px; }
 
-  .section{
-    padding:28px 24px;
-  }
+  .section{ padding:30px 24px; }
+  .cv-row{ flex-direction:column; align-items:flex-start; }
 
-  .project{
-    flex-direction:column;
-  }
+  .project{ flex-direction:column; }
+  .project img{ width:100%; height:220px; }
 
-  .project img{
-    width:100%;
-    height:240px;
-  }
+  .feature-grid{ grid-template-columns:1fr; }
 }
 
 /* Footer */
@@ -194,7 +315,7 @@ footer{
   text-align:center;
   font-size:14px;
   color:var(--muted);
-  margin-top:70px;
+  margin-top:64px;
 }
 </style>
 </head>
@@ -203,14 +324,15 @@ footer{
 <div class="container">
 
 <header>
+  <div class="eyebrow">Curriculum Vitae &amp; Selected Work</div>
   <h1>Shumaila Abbasi</h1>
   <div class="subtitle">
-    MS-CAPP · Data Science & Public Policy · University of Chicago
+    MS-CAPP &middot; Data Science &amp; Public Policy &middot; University of Chicago
   </div>
 </header>
 
-<div class="section">
-  <h2>About Me</h2>
+<div class="section about">
+  <div class="section-title"><h2>About Me</h2></div>
   <p>
     I am a data-driven policy professional at the University of Chicago working at the intersection of
     computational methods, applied economic research, and public policy. My work focuses on transforming
@@ -219,15 +341,39 @@ footer{
 </div>
 
 <div class="section">
-  <h2>Curriculum Vitae</h2>
-  <p>You can download my CV below:</p>
-  <a class="button" download href="https://drive.google.com/uc?export=download&id=1vEC_5E3LxwknOBXwB23uXcXtyH2t4FKJ">
-    Download CV
-  </a>
+  <div class="section-title"><h2>Curriculum Vitae</h2></div>
+  <div class="cv-row">
+    <p>Download my full academic and professional history as a PDF.</p>
+    <a class="button" download href="https://drive.google.com/uc?export=download&id=1vEC_5E3LxwknOBXwB23uXcXtyH2t4FKJ">
+      Download CV
+    </a>
+  </div>
 </div>
 
 <div class="section">
-  <h2>Projects & Publications</h2>
+  <div class="section-title">
+    <h2>Projects &amp; Publications</h2>
+    <span class="section-count">10 entries</span>
+  </div>
+
+  <!-- Foreign Adoption Delays (new) -->
+  <div class="project">
+    <a href="https://bpb-us-w2.wpmucdn.com/voices.uchicago.edu/dist/d/3128/files/2026/08/Foreign-Adoption-Delays-and-Free-Riding-Policy-Brief-August-9-2026.pdf" target="_blank">
+      <img src="freeriding.jpg" alt="Foreign Drug Adoption Delays report">
+    </a>
+    <div class="project-content">
+      <span class="tag">ECCHC Policy Brief &middot; Aug 2026</span>
+      <h3><a href="https://bpb-us-w2.wpmucdn.com/voices.uchicago.edu/dist/d/3128/files/2026/08/Foreign-Adoption-Delays-and-Free-Riding-Policy-Brief-August-9-2026.pdf" target="_blank">
+        The Impact of Foreign Drug Adoption Delays on International Free Riding
+      </a></h3>
+      <p>
+        Co-authored brief identifying a timing-based channel of international free riding in pharmaceutical
+        markets: later-adopting countries often reimburse new drugs only after U.S. net prices have already
+        declined and competing therapies have entered, letting them contribute less during a drug's most
+        commercially important years.
+      </p>
+    </div>
+  </div>
 
   <!-- NBER Cancer -->
   <div class="project">
@@ -235,8 +381,9 @@ footer{
       <img src="nber.jpg" alt="NBER working paper">
     </a>
     <div class="project-content">
+      <span class="tag">NBER Working Paper</span>
       <h3><a href="https://www.nber.org/papers/w35052" target="_blank">
-        The Economic Value of Eliminating Cancer (NBER Working Paper)
+        The Economic Value of Eliminating Cancer
       </a></h3>
       <p>
         Co-authored working paper estimating the economic value of eliminating U.S. cancer mortality,
@@ -251,8 +398,9 @@ footer{
       <img src="pharma.jpg" alt="Pharmaceutical innovation policy brief">
     </a>
     <div class="project-content">
+      <span class="tag">ECCHC Policy Brief</span>
       <h3><a href="https://ecchc.economics.uchicago.edu/project/policy-brief-the-impact-of-intellectual-property-protection-on-post-approval-innovation/" target="_blank">
-        Policy Brief: The Impact of Intellectual Property Protection on Post-Approval Innovation
+        The Impact of Intellectual Property Protection on Post-Approval Innovation
       </a></h3>
       <p>
         Policy brief examining how intellectual property protection shapes post-approval pharmaceutical innovation,
@@ -267,6 +415,7 @@ footer{
       <img src="footchase.jpg" alt="Foot pursuits research paper">
     </a>
     <div class="project-content">
+      <span class="tag">SSRN Working Paper</span>
       <h3><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6250198" target="_blank">
         When Are Foot Pursuits Really Necessary? How Improved Policies Might Reduce Community Harm
       </a></h3>
@@ -277,34 +426,15 @@ footer{
     </div>
   </div>
 
-  <!-- Statewise Economy -->
-  <div class="project">
-    <a href="https://shumaila9467.github.io/statewise-economy/" target="_blank">
-      <img src="statewise.jpg" alt="Statewise economy dashboard">
-    </a>
-    <div class="project-content">
-      <h3><a href="https://shumaila9467.github.io/statewise-economy/" target="_blank">
-        Statewise U.S. Economy: Interactive Data Visualization Dashboard
-      </a></h3>
-      <p>
-        Interactive dashboard built using Altair, HTML, CSS, and JavaScript to analyze state- and
-        industry-level GDP trends in the U.S. from 2019–2024.
-      </p>
-      <div class="project-links">
-        <a href="https://shumaila9467.github.io/statewise-economy/" target="_blank">Live Project</a>
-        <a href="https://github.com/Shumaila9467/statewise-economy" target="_blank">GitHub</a>
-      </div>
-    </div>
-  </div>
-
   <!-- Rx Policy -->
   <div class="project">
     <a href="https://bpb-us-w2.wpmucdn.com/voices.uchicago.edu/dist/d/3128/files/2025/09/The-Share-of-Health-Care-Spending-Growth-Attributable-to-Rx.pdf" target="_blank">
       <img src="ecch1.jpg" alt="Rx policy brief">
     </a>
     <div class="project-content">
+      <span class="tag">ECCHC Policy Brief</span>
       <h3><a href="https://bpb-us-w2.wpmucdn.com/voices.uchicago.edu/dist/d/3128/files/2025/09/The-Share-of-Health-Care-Spending-Growth-Attributable-to-Rx.pdf" target="_blank">
-        Policy Brief: Health Care Spending Growth Attributable to Rx
+        The Share of Health Care Spending Growth Attributable to Rx
       </a></h3>
       <p>
         Policy brief analyzing the contribution of prescription drugs to long-term U.S. healthcare spending growth.
@@ -312,14 +442,15 @@ footer{
     </div>
   </div>
 
-    <!-- ConLawNow -->
+  <!-- ConLawNow -->
   <div class="project">
     <a href="https://ideaexchange.uakron.edu/cgi/viewcontent.cgi?article=1203&context=conlawnow" target="_blank">
       <img src="sharon.jpg" alt="ConLawNow article">
     </a>
     <div class="project-content">
+      <span class="tag">ConLawNow</span>
       <h3><a href="https://ideaexchange.uakron.edu/cgi/viewcontent.cgi?article=1203&context=conlawnow" target="_blank">
-        Fundamental Fairness Guides (<em>ConLawNow</em>)
+        Fundamental Fairness Guides
       </a></h3>
       <p>
         Supported data management and analysis for Professor Sharon Fairley in this paper analyzing defendant-friendly trends
@@ -334,8 +465,9 @@ footer{
       <img src="turkmenistan.jpg" alt="Turkmenistan report">
     </a>
     <div class="project-content">
+      <span class="tag">Pakistan Business Council</span>
       <h3><a href="https://www.pbc.org.pk/wp-content/uploads/Report-Turkmenistan.pdf" target="_blank">
-        Turkmenistan Country Profile (Pakistan Business Council)
+        Turkmenistan Country Profile
       </a></h3>
       <p>
         Country profile produced as part of the Central Asia research series for the Pakistan Business Council.
@@ -349,11 +481,12 @@ footer{
       <img src="export.jpg" alt="Export competitiveness report">
     </a>
     <div class="project-content">
+      <span class="tag">Pakistan Business Council</span>
       <h3><a href="https://www.pbc.org.pk/wp-content/uploads/a-policy-framework-for-improving-the-export-competitiveness-of-pakistans-knitted-apparel.pdf" target="_blank">
-        Export Competitiveness: Pakistan’s Knitted Apparel Sector
+        Export Competitiveness: Pakistan's Knitted Apparel Sector
       </a></h3>
       <p>
-        Trade policy framework identifying structural constraints and reform pathways to strengthen Pakistan’s knitwear exports.
+        Trade policy framework identifying structural constraints and reform pathways to strengthen Pakistan's knitwear exports.
       </p>
     </div>
   </div>
@@ -364,11 +497,12 @@ footer{
       <img src="gsp.jpg" alt="Pakistan GSP report">
     </a>
     <div class="project-content">
+      <span class="tag">Pakistan Business Council</span>
       <h3><a href="https://www.pbc.org.pk/wp-content/uploads/Pakistans-GSP-Status...a-missed-opportunity.pdf" target="_blank">
-        Pakistan’s GSP Status: A Missed Opportunity
+        Pakistan's GSP Status: A Missed Opportunity
       </a></h3>
       <p>
-        Policy report evaluating Pakistan’s GSP status and its implications for trade competitiveness and export performance.
+        Policy report evaluating Pakistan's GSP status and its implications for trade competitiveness and export performance.
       </p>
     </div>
   </div>
@@ -379,6 +513,7 @@ footer{
       <img src="sindh.jpg" alt="Economy of Modern Sindh">
     </a>
     <div class="project-content">
+      <span class="tag">IBA Research</span>
       <h3><a href="https://ir.iba.edu.pk/cgi/viewcontent.cgi?article=1005&context=faculty-research-books" target="_blank">
         Economy of Modern Sindh (Research Project)
       </a></h3>
@@ -389,11 +524,58 @@ footer{
     </div>
   </div>
 
+</div>
 
+<div class="section">
+  <div class="section-title">
+    <h2>Interactive Data Projects</h2>
+    <span class="section-count">2 entries</span>
+  </div>
+
+  <div class="feature-grid">
+
+    <div class="feature-card">
+      <img src="bfi.jpg" alt="The Rise of Healthcare Jobs visual essay">
+      <div class="feature-body">
+        <span class="tag">Scrollytelling &middot; BFI WP 2025-42</span>
+        <h3><a href="https://shumaila9467.github.io/bfi/" target="_blank">
+          The Rise of Healthcare Jobs
+        </a></h3>
+        <p>
+          Interactive visual companion to a Becker Friedman Institute working paper, tracing how healthcare
+          overtook manufacturing and retail to become America's largest employer, with linked charts on
+          regional concentration, wage growth, and aging-driven demand across 130 metro areas.
+        </p>
+        <div class="project-links">
+          <a href="https://shumaila9467.github.io/bfi/" target="_blank">Live Project</a>
+          <a href="https://bfi.uchicago.edu/working-papers/the-rise-of-healthcare-jobs/" target="_blank">Working Paper</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="feature-card">
+      <img src="statewise.jpg" alt="Statewise economy dashboard">
+      <div class="feature-body">
+        <span class="tag">Dashboard &middot; Altair / JS</span>
+        <h3><a href="https://shumaila9467.github.io/statewise-economy/" target="_blank">
+          Statewise U.S. Economy
+        </a></h3>
+        <p>
+          Interactive dashboard built using Altair, HTML, CSS, and JavaScript to analyze state- and
+          industry-level GDP trends in the U.S. from 2019&ndash;2024.
+        </p>
+        <div class="project-links">
+          <a href="https://shumaila9467.github.io/statewise-economy/" target="_blank">Live Project</a>
+          <a href="https://github.com/Shumaila9467/statewise-economy" target="_blank">GitHub</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </div>
 
 <footer>
-  © 2025 · Shumaila Abbasi
+  &copy; 2026 &middot; Shumaila Abbasi
 </footer>
 
 </div>
